@@ -1,0 +1,148 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f0e0e;
+  color: #F9F1F0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+:focus {
+  outline: 2px solid #ec4e20;
+  outline-offset: 16px;
+}
+
+::selection {
+  color: #F9F1F0;
+  background-color: #ec4e20;
+}
+
+.btn-def {
+  height: 36px;
+  font-size: 20px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background-color: #ec4e20;
+  color: #F9F1F0;
+  border: 1px solid #ec4e20;
+  border-radius: 8px;
+  transition: transform 0.5s, background-color 0.5s, border-color 0.5s, color 0.25s;
+}
+
+.btn-def:active {
+  transform: scale(0.9);
+}
+
+.btn-def:hover, .btn-def:active, .btn-def:focus {
+  color: #ec4e20;
+  background-color: #F9F1F0;
+  outline: 0;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 16px 0;
+  background: transparent;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.25s;
+}
+header.scrolled {
+  background-color: #0f0e0e;
+}
+header > div {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header article:nth-child(2) {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header article:nth-child(2) .list-inline-item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+header .brand-logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+header p {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.25s;
+}
+header p:hover, header p:focus {
+  color: #ec4e20;
+}
+
+main {
+  margin-bottom: 100px;
+}
+
+.hero-section {
+  width: 100%;
+  position: relative;
+}
+.hero-section .hero-img {
+  min-height: 650px;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(45deg, #ff9505 0 35%, #016fb9 35% 100%);
+}
+.hero-section .hero-img img {
+  width: 100%;
+  height: auto;
+}
+.hero-section .hero-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+}
+.hero-section .hero-text p:first-of-type {
+  font-size: 80px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.hero-section .hero-text p:nth-child(2) {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+main .article p:first-child {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+main .article p:nth-child(2) {
+  font-size: 16px;
+  columns: 3 350px;
+}
+
+main {
+  min-height: 60vh;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -38,6 +38,8 @@ p {
   color: #F9F1F0;
   border: 1px solid #ec4e20;
   border-radius: 8px;
+  user-select: none;
+  box-shadow: 0 10px 15px 1px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s, background-color 0.5s, border-color 0.5s, color 0.25s;
 }
 
@@ -93,6 +95,10 @@ header p:hover, header p:focus {
   color: #ec4e20;
 }
 
+.header-space {
+  margin-top: 100px;
+}
+
 main {
   margin-bottom: 100px;
 }
@@ -135,14 +141,23 @@ main .article p:first-child {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 32px;
+  cursor: pointer;
 }
 main .article p:nth-child(2) {
   font-size: 16px;
   columns: 3 350px;
 }
+main .article.active p:first-child {
+  color: #ec4e20;
+}
 
 main {
   min-height: 60vh;
+}
+
+.accordion-toggle, .card-header, .card-body {
+  background-color: #0f0e0e;
+  color: #fff;
 }
 
 /*# sourceMappingURL=app.css.map */

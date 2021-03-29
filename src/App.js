@@ -1,10 +1,10 @@
-import Home from './components/home.jsx'
+import Router from './Router.js'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 
 function App() {
   return (
-    <><Header/><main><Home/></main><Footer/></>
+    <><Header/><main><Router/></main><Footer/></>
   );
 }
 

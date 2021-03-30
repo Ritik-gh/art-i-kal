@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -8,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0f0e0e;
-  color: #F9F1F0;
+  color: #f9f1f0;
   line-height: 1.2;
 }
 
@@ -22,12 +24,12 @@ p {
 }
 
 ::selection {
-  color: #F9F1F0;
+  color: #f9f1f0;
   background-color: #ec4e20;
 }
 
 .btn-def {
-  height: 36px;
+  height: 42px;
   font-size: 20px;
   min-width: 100px;
   display: flex;
@@ -35,7 +37,7 @@ p {
   justify-content: center;
   padding: 0 16px;
   background-color: #ec4e20;
-  color: #F9F1F0;
+  color: #f9f1f0;
   border: 1px solid #ec4e20;
   border-radius: 8px;
   user-select: none;
@@ -47,9 +49,11 @@ p {
   transform: scale(0.9);
 }
 
-.btn-def:hover, .btn-def:active, .btn-def:focus {
+.btn-def:hover,
+.btn-def:active,
+.btn-def:focus {
   color: #ec4e20;
-  background-color: #F9F1F0;
+  background-color: #f9f1f0;
   outline: 0;
 }
 
@@ -91,7 +95,8 @@ header p {
   user-select: none;
   transition: color 0.25s;
 }
-header p:hover, header p:focus {
+header p:hover,
+header p:focus {
   color: #ec4e20;
 }
 
@@ -129,7 +134,7 @@ main {
   font-size: 80px;
   font-weight: bold;
   color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   line-height: 1;
 }
 .hero-section .hero-text p:nth-child(2) {
@@ -145,7 +150,8 @@ main .article p:first-child {
 }
 main .article p:nth-child(2) {
   font-size: 16px;
-  columns: 3 350px;
+  columns: 2 550px;
+  column-gap: 32px;
 }
 main .article.active p:first-child {
   color: #ec4e20;
@@ -155,9 +161,30 @@ main {
   min-height: 60vh;
 }
 
-.accordion-toggle, .card-header, .card-body {
+.accordion-toggle,
+.card-header,
+.card-body {
   background-color: #0f0e0e;
   color: #fff;
+}
+
+footer > .container {
+  border-top: 1px solid #f9f1f0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+footer .footer-links > p {
+  font-size: 16px;
+  cursor: pointer;
+  color: #f9f1f0;
+  transition: color 0.5s;
+}
+footer .footer-links > p:hover,
+footer .footer-links > p:focus {
+  color: #ec4e20;
+}
+footer .footer-links > p:not(:last-child) {
+  margin-bottom: 4px;
 }
 
 /*# sourceMappingURL=app.css.map */

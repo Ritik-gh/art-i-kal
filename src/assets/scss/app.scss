@@ -105,6 +105,7 @@ header {
   .brand-logo {
     font-size: 28px;
     font-weight: bold;
+    text-shadow: 2px 4px 6px $black;
   }
 
   p {
@@ -115,6 +116,7 @@ header {
   p:hover,
   p:focus {
     color: $blue-grotto;
+    text-shadow: none;
   }
 }
 

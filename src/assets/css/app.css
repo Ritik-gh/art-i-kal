@@ -89,6 +89,7 @@ header article:nth-child(2) .list-inline-item:not(:last-child) {
 header .brand-logo {
   font-size: 28px;
   font-weight: bold;
+  text-shadow: 2px 4px 6px #171717;
 }
 header p {
   cursor: pointer;
@@ -98,6 +99,7 @@ header p {
 header p:hover,
 header p:focus {
   color: #ec4e20;
+  text-shadow: none;
 }
 
 .header-space {

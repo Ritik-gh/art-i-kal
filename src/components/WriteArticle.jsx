@@ -20,31 +20,31 @@ export default function WriteArticle() {
       postsArray.push(post);
       localStorage.posts = JSON.stringify(postsArray);
     }
-    history.push("/article");
+    history.push("/");
   }
   return (
     <>
       <div className="container header-space">
-        <div class="form-floating mb-3">
+        <label class="article-input">
+          Title
           <input
             type="email"
-            class="form-control bg-dark text-light"
             id="title"
             ref={refTitle}
             placeholder="Type in the title here"
             autofocus
+            autocomplete="off"
           />
-          <label for="title">Title</label>
-        </div>
-        <div class="form-floating">
+        </label>
+
+        <label className="article-input">
+          Opinion
           <textarea
-            class="form-control bg-dark text-light mb-3"
             placeholder="Leave a comment here"
             ref={refOpinion}
             id="opinion"
           ></textarea>
-          <label for="opinion">Opinion</label>
-        </div>
+        </label>
         <article className="col-xl-3 col-md-4 col-sm-6 mx-auto">
           <button className="btn-def w-100" onClick={addArticle}>
             Submit

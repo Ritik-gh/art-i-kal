@@ -19,8 +19,7 @@ p {
 }
 
 :focus {
-  outline: 2px solid #ec4e20;
-  outline-offset: 16px;
+  outline: none;
 }
 
 ::selection {
@@ -78,7 +77,6 @@ header > div {
   justify-content: space-between;
 }
 header article:nth-child(2) {
-  flex: 0 0 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -115,7 +113,7 @@ main {
   position: relative;
 }
 .hero-section .hero-img {
-  min-height: 650px;
+  min-height: 750px;
   width: 100%;
   height: auto;
   background: linear-gradient(45deg, #ff9505 0 35%, #016fb9 35% 100%);
@@ -152,8 +150,9 @@ main .article p:first-child {
 }
 main .article p:nth-child(2) {
   font-size: 16px;
-  columns: 2 550px;
+  columns: 2 450px;
   column-gap: 32px;
+  word-break: break-word;
 }
 main .article.active p:first-child {
   color: #ec4e20;
@@ -187,6 +186,29 @@ footer .footer-links > p:focus {
 }
 footer .footer-links > p:not(:last-child) {
   margin-bottom: 4px;
+}
+
+.article-input {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+.article-input input {
+  height: 50px;
+}
+.article-input textarea {
+  min-height: 600px;
+}
+.article-input input,
+.article-input textarea {
+  width: 100%;
+  background: #171717;
+  color: #f9f1f0;
+  margin-top: 8px;
+  box-shadow: none;
+  border: 1px solid #f9f1f0;
+  border-radius: 8px;
+  padding: 8px 16px;
 }
 
 /*# sourceMappingURL=app.css.map */

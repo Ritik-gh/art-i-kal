@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 let fetchedData = null;
 fetch("https://pokeapi.co/api/v2/contest-type")
@@ -9,6 +9,9 @@ console.log(fetchedData);
 
 export default function Home() {
   const history = useHistory();
+  const [activePost, setActivePost] = useState(null);
+  const posts = JSON.parse(localStorage.posts);
+  console.log(posts);
   return (
     <>
       {/* full width landing section */}
@@ -38,7 +41,21 @@ export default function Home() {
       </div>
       {/*  */}
       <div className="container">
-        <h1>Now comes the content</h1>
+        <h1>Articles for you</h1>
+        {posts.map((post, index) => (
+          <article
+            className={`article mb-5 ${activePost === index && "active"}`}
+            onClick={() => {
+              // setActivePost(index);
+              history.push(`/article/${index}`);
+            }}
+          >
+            <p>
+              {index + 1}.{post.title}
+            </p>
+            {/* {activePost === index && <p>{post.opinion}</p>} */}
+          </article>
+        ))}
       </div>
     </>
   );

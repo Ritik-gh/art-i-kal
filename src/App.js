@@ -9,7 +9,7 @@ function App() {
       <main>
         <Router />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

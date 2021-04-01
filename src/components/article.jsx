@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
-export default function Article() {
+export default function Article({ match }) {
   const [activePost, setActivePost] = useState(null);
   const posts = JSON.parse(localStorage.posts);
-  console.log(posts);
+  console.log(match);
+  const id = match.params.articleId;
   return (
     <>
       <div className="container header-space">
@@ -16,17 +17,10 @@ export default function Article() {
         </article>
         ))} */}
 
-        {posts.map((post, index) => (
-          <article
-            className={`article mb-5 ${activePost === index && "active"}`}
-            onClick={() => setActivePost(index)}
-          >
-            <p>
-              {index + 1}.{post.title}
-            </p>
-            {activePost === index && <p>{post.opinion}</p>}
-          </article>
-        ))}
+        <article className={`article mb-5 active`}>
+          <p>{posts[id].title}</p>
+          <p>{posts[id].opinion}</p>
+        </article>
         {/* <Accordion defaultActiveKey="0">
         {posts.map((post, index)=>(
   <>

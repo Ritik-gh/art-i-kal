@@ -31,8 +31,9 @@ p {
 }
 
 :focus {
-  outline: 2px solid $blue-grotto;
-  outline-offset: 16px;
+  // outline: 2px solid $blue-grotto;
+  // outline-offset: 16px;
+  outline: none;
 }
 
 ::selection {
@@ -93,7 +94,6 @@ header {
   }
 
   article:nth-child(2) {
-    flex: 0 0 50%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -132,7 +132,7 @@ main {
   position: relative;
 
   .hero-img {
-    min-height: 650px;
+    min-height: 750px;
     width: 100%;
     height: auto;
     background: linear-gradient(45deg, $mn-yellow 0 35%, $mn-blue 35% 100%);
@@ -173,8 +173,9 @@ main .article {
 
   p:nth-child(2) {
     font-size: 16px;
-    columns: 2 550px;
+    columns: 2 450px;
     column-gap: 32px;
+    word-break: break-word;
   }
 
   &.active {
@@ -215,5 +216,28 @@ footer {
     > p:not(:last-child) {
       margin-bottom: 4px;
     }
+  }
+}
+
+.article-input {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 24px;
+  input {
+    height: 50px;
+  }
+  textarea {
+    min-height: 600px;
+  }
+  input,
+  textarea {
+    width: 100%;
+    background: $black;
+    color: $lightOne;
+    margin-top: 8px;
+    box-shadow: none;
+    border: 1px solid $lightOne;
+    border-radius: 8px;
+    padding: 8px 16px;
   }
 }

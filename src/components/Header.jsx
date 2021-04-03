@@ -6,6 +6,7 @@ export default function Header() {
   const refHeader = useRef();
   const history = useHistory();
   const [auth, setAuth] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(localStorage.loggedIn);
 
   useEffect(function () {
     window.addEventListener("scroll", function (e) {
@@ -40,10 +41,13 @@ export default function Header() {
                     onClick={(e) => {
                       if (e.target.innerText === "Login") {
                         setAuth(true);
+                      } else {
+                        setLoggedIn("no");
+                        localStorage.loggedIn = "no";
                       }
                     }}
                   >
-                    Login
+                    {loggedIn === "yes" ? "Logout" : "Login"}
                   </button>
                 </li>
                 {/* <li className="list-inline-item">

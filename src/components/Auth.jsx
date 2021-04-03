@@ -60,6 +60,7 @@ export default function Auth(props) {
       localStorage.users = JSON.stringify(users);
       props.closeFunc(false);
       loggedIn = true;
+      localStorage.loggedIn = "yes";
     }
   }
 
@@ -73,6 +74,7 @@ export default function Auth(props) {
         if (user.email === emailRef.current.value) {
           if (user.password === passwordRef.current.value) {
             loggedIn = true;
+            localStorage.loggedIn = "yes";
           } else {
             setPasswordError(true);
           }

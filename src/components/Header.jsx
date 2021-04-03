@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import Auth from "./Auth.jsx";
 
 export default function Header() {
   const refHeader = useRef();
   const history = useHistory();
+  const [auth, setAuth] = useState(false);
 
   useEffect(function () {
     window.addEventListener("scroll", function (e) {
@@ -15,6 +17,7 @@ export default function Header() {
 
   return (
     <>
+      <Auth show={auth} closeFunc={setAuth} />
       <header ref={refHeader}>
         <div className="container">
           <section className="row w-100">
@@ -32,11 +35,13 @@ export default function Header() {
                   <p>About Us</p>
                 </li>
                 <li className="list-inline-item">
-                  <button className="btn-def">Login</button>
+                  <button className="btn-def" onClick={() => setAuth(true)}>
+                    Login
+                  </button>
                 </li>
-                <li className="list-inline-item">
+                {/* <li className="list-inline-item">
                   <button className="btn-def">Sign Up</button>
-                </li>
+                </li> */}
               </ul>
             </article>
           </section>

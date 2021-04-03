@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Auth from "./Auth.jsx";
+
 let fetchedData = null;
 fetch("https://pokeapi.co/api/v2/contest-type")
   .then((response) => response.json())
@@ -11,9 +13,10 @@ export default function Home() {
   const history = useHistory();
   const [activePost, setActivePost] = useState(null);
   const posts = JSON.parse(localStorage.posts);
-  console.log(posts);
+  const [auth, setAuth] = useState(false);
   return (
     <>
+      <Auth show={auth} closeFunc={setAuth} signup />
       {/* full width landing section */}
       <div className="hero-section">
         <figure className="hero-img"></figure>
@@ -30,7 +33,9 @@ export default function Home() {
                 </p>
                 <button
                   className="btn-def"
-                  onClick={() => history.push("/write")}
+                  onClick={() => {
+                    setAuth(true);
+                  }}
                 >
                   Get Started
                 </button>
@@ -41,20 +46,23 @@ export default function Home() {
       </div>
       {/*  */}
       <div className="container">
-        <h1>Articles for you</h1>
+        <p className="heading">Articles for you</p>
         {posts.map((post, index) => (
-          <article
-            className={`article mb-5 ${activePost === index && "active"}`}
+          // <article
+          //   className={``}
+
+          // >
+          <p
+            className="post"
             onClick={() => {
               // setActivePost(index);
               history.push(`/article/${index}`);
             }}
           >
-            <p>
-              {index + 1}.{post.title}
-            </p>
-            {/* {activePost === index && <p>{post.opinion}</p>} */}
-          </article>
+            {index + 1}.{post.title}
+          </p>
+          /* {activePost === index && <p>{post.opinion}</p>} */
+          // </article>
         ))}
       </div>
     </>

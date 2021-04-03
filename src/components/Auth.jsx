@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Modal } from "react-bootstrap";
 
 export default function Auth(props) {
@@ -9,6 +9,10 @@ export default function Auth(props) {
   const lastNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [emailOneError, setEmailOneError] = useState(false);
+  const [emailTwoError, setEmailTwoError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
   let users;
   let loggedIn = false;
@@ -19,40 +23,65 @@ export default function Auth(props) {
     users = [];
   }
 
+  let errors = {
+    firstName: "First Name is a must!",
+    emailOne: "Email is a must!",
+    emailTwo: "Enter a Valid email",
+    password: "Enter a valid Password",
+  };
+
   function handleSignup(e) {
     e.preventDefault();
-    console.log("entry");
     let user = {};
     user.firstName = firstNameRef.current.value;
     user.lastName = lastNameRef.current.value;
     user.email = emailRef.current.value;
     user.password = passwordRef.current.value;
-    users.push(user);
-    localStorage.users = JSON.stringify(users);
-    console.log("exit");
-    props.closeFunc(false);
+    setFirstNameError(false);
+    setEmailOneError(false);
+    setEmailTwoError(false);
+    setPasswordError(false);
+    if (firstNameRef.current.value === "") {
+      setFirstNameError(true);
+    } else if (emailRef.current.value === "") {
+      setEmailOneError(true);
+    } else if (
+      !emailRef.current.value.includes("@") ||
+      !emailRef.current.value.includes(".")
+    ) {
+      setEmailTwoError(true);
+    } else if (
+      passwordRef.current.value === "" ||
+      passwordRef.current.value.length < 8
+    ) {
+      setPasswordError(true);
+    } else {
+      users.push(user);
+      localStorage.users = JSON.stringify(users);
+      props.closeFunc(false);
+      loggedIn = true;
+    }
   }
 
   function handleLogin(e) {
     e.preventDefault();
-    let email = false;
+
+    setEmailTwoError(false);
+    setPasswordError(false);
     if (users.length) {
       users.forEach(function (user) {
         if (user.email === emailRef.current.value) {
-          email = true;
           if (user.password === passwordRef.current.value) {
             loggedIn = true;
+          } else {
+            setPasswordError(true);
           }
+        } else {
+          setEmailTwoError(true);
         }
       });
     }
-    if (!email) {
-      emailRef.current.style.color = "red";
-    } else {
-      passwordRef.current.style.color = "red";
-    }
     if (loggedIn) {
-      console.log({ loggedIn });
       props.closeFunc(false);
     }
   }
@@ -68,39 +97,54 @@ export default function Auth(props) {
         <form action="">
           {props.signup && (
             <>
-              <input
-                type="text"
-                name=""
-                ref={firstNameRef}
-                placeholder="First Name"
-                autofocus
-                required
-              />
-              <input
-                type="text"
-                name=""
-                ref={lastNameRef}
-                placeholder="Last Name"
-                required
-              />
+              <article>
+                <input
+                  type="text"
+                  name=""
+                  ref={firstNameRef}
+                  placeholder="First Name"
+                  autofocus
+                />
+                <p className="error">{firstNameError && errors.firstName}</p>
+              </article>
+              <article>
+                <input
+                  type="text"
+                  name=""
+                  ref={lastNameRef}
+                  placeholder="Last Name"
+                />
+                <p className="error">
+                  {/*
+                   {errors.firstName.invalidity && errors.firstName.msg} 
+                   */}
+                </p>
+              </article>
             </>
           )}
-          <input
-            type="email"
-            name=""
-            ref={emailRef}
-            placeholder="Email"
-            autofocus
-            required
-          />
-          <input
-            type="password"
-            name=""
-            ref={passwordRef}
-            placeholder="Password"
-            required
-            autocomplete="new-password"
-          />
+          <article>
+            <input
+              type="email"
+              name=""
+              ref={emailRef}
+              placeholder="Email"
+              autofocus
+            />
+            <p className="error">
+              {(emailOneError && errors.emailOne) ||
+                (emailTwoError && errors.emailTwo)}
+            </p>
+          </article>
+          <article>
+            <input
+              type="password"
+              name=""
+              ref={passwordRef}
+              placeholder="Password"
+              autocomplete="new-password"
+            />
+            <p className="error">{passwordError && errors.password}</p>
+          </article>
           <button
             className="btn-def mx-auto"
             onClick={props.signup ? handleSignup : handleLogin}

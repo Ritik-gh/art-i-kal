@@ -31,11 +31,18 @@ export default function Header() {
                 <li className="list-inline-item">
                   <p onClick={() => history.push("/article")}>Contents</p>
                 </li>
-                <li className="list-inline-item">
+                {/* <li className="list-inline-item">
                   <p>About Us</p>
-                </li>
+                </li> */}
                 <li className="list-inline-item">
-                  <button className="btn-def" onClick={() => setAuth(true)}>
+                  <button
+                    className="btn-def"
+                    onClick={(e) => {
+                      if (e.target.innerText === "Login") {
+                        setAuth(true);
+                      }
+                    }}
+                  >
                     Login
                   </button>
                 </li>

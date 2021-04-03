@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Auth from "./Auth.jsx";
+import { getReadingTime } from "../helper.js";
 
 let fetchedData = null;
 fetch("https://pokeapi.co/api/v2/contest-type")
@@ -52,15 +53,19 @@ export default function Home() {
           //   className={``}
 
           // >
-          <p
-            className="post"
-            onClick={() => {
-              // setActivePost(index);
-              history.push(`/article/${index}`);
-            }}
-          >
-            {index + 1}.{post.title}
-          </p>
+          <article>
+            <p
+              className="post"
+              onClick={() => {
+                // setActivePost(index);
+                history.push(`/article/${index}`);
+              }}
+            >
+              {index + 1}.{post.title}
+            </p>
+            <p> {getReadingTime(post.opinion)} read</p>
+          </article>
+
           /* {activePost === index && <p>{post.opinion}</p>} */
           // </article>
         ))}

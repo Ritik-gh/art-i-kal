@@ -25,7 +25,7 @@ export default function Home() {
           <div className="container">
             <section className="row">
               <article className="col-md-10 col-lg-8 col-xl-7">
-                <p className="">Share your Ideas with the world</p>
+                <p className="">Write the future with your ideas</p>
                 <p className="">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et,
                   dolores esse vero cum optio dolor. Dolore pariatur, magnam,
@@ -46,29 +46,25 @@ export default function Home() {
         </aside>
       </div>
       {/*  */}
-      <div className="container">
+      <div className="container mt-5">
         <p className="heading">Articles for you</p>
-        {posts.map((post, index) => (
-          // <article
-          //   className={``}
-
-          // >
-          <article>
-            <p
-              className="post"
-              onClick={() => {
-                // setActivePost(index);
-                history.push(`/article/${index}`);
-              }}
-            >
-              {index + 1}.{post.title}
-            </p>
-            <p> {getReadingTime(post.opinion)} read</p>
-          </article>
-
-          /* {activePost === index && <p>{post.opinion}</p>} */
-          // </article>
-        ))}
+        <section className="row">
+          {posts.map((post, index) => (
+            <aside className="col-lg-6">
+              <article
+                className="post"
+                onClick={() => {
+                  // setActivePost(index);
+                  history.push(`/article/${index}`);
+                }}
+              >
+                <p>{post.title.split(" ").slice(0, 5).join(" ")}</p>
+                <p>{post.opinion.slice(0, 80)}...read more</p>
+                <p> {getReadingTime(post.opinion)} read</p>
+              </article>
+            </aside>
+          ))}
+        </section>
       </div>
     </>
   );

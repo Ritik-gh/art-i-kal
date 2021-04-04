@@ -120,6 +120,9 @@ main {
   width: 100%;
   position: relative;
 }
+.hero-section figure {
+  margin-bottom: 0;
+}
 .hero-section .hero-img {
   min-height: 750px;
   width: 100%;
@@ -151,16 +154,18 @@ main {
 }
 
 main .article p:first-child {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: bold;
   margin-bottom: 32px;
   cursor: pointer;
+  line-height: 1;
 }
 main .article p:nth-child(2) {
-  font-size: 16px;
+  font-size: 18px;
   columns: 2 450px;
   column-gap: 32px;
   word-break: break-word;
+  color: #fff;
 }
 main .article.active p:first-child {
   color: #00821b;
@@ -170,20 +175,40 @@ main {
   min-height: 60vh;
 }
 main .heading {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 main .post {
-  font-size: 20px;
+  color: #f9f1f0;
+  background-color: #171717;
   cursor: pointer;
-  transition: color 0.25s;
-}
-main .post:not(:last-child) {
-  margin-bottom: 8px;
+  border: 1px solid #f9f1f0;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  font-size: 20px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 main .post:hover {
+  border-color: #00821b;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 130, 27, 0.2);
+}
+main .post:hover p:first-child {
   color: #00821b;
+}
+main .post p:not(:last-child) {
+  margin-bottom: 8px;
+}
+main .post p:first-child {
+  font-size: 32px;
+  font-weight: bold;
+  transition: color 0.25s;
+  color: #fff;
+}
+main .post p:last-child {
+  font-size: 14px;
 }
 
 @media (min-width: 576px) {

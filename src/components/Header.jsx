@@ -30,7 +30,7 @@ export default function Header() {
             <article className="col-8">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
-                  <p onClick={() => history.push("/article")}>Contents</p>
+                  <p onClick={() => history.push("/write")}>Write</p>
                 </li>
                 {/* <li className="list-inline-item">
                   <p>About Us</p>

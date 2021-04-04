@@ -5,7 +5,7 @@ $lightOne: #f9f1f0;
 $mn-blue: rgb(1, 111, 185);
 $mn-royal-blue: rgb(1, 41, 95);
 $mn-yellow: rgb(255, 149, 5);
-$blue-grotto: #00821b;
+$blue-grotto: rgb(0, 130, 27);
 $blue-grotto-prev: rgb(236, 78, 32);
 $cs50: rgb(152, 38, 73);
 
@@ -140,6 +140,10 @@ main {
   width: 100%;
   position: relative;
 
+  figure {
+    margin-bottom: 0;
+  }
+
   .hero-img {
     min-height: 750px;
     width: 100%;
@@ -174,17 +178,19 @@ main {
 
 main .article {
   p:first-child {
-    font-size: 48px;
+    font-size: 60px;
     font-weight: bold;
     margin-bottom: 32px;
     cursor: pointer;
+    line-height: 1;
   }
 
   p:nth-child(2) {
-    font-size: 16px;
+    font-size: 18px;
     columns: 2 450px;
     column-gap: 32px;
     word-break: break-word;
+    color: $white;
   }
 
   &.active {
@@ -197,19 +203,43 @@ main .article {
 main {
   min-height: 60vh;
   .heading {
-    font-size: 48px;
+    font-size: 60px;
     font-weight: bold;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
   .post {
-    font-size: 20px;
+    color: $lightOne;
+    background-color: $black;
     cursor: pointer;
-    transition: color 0.25s;
-    &:not(:last-child) {
+    border: 1px solid $lightOne;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    font-size: 20px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+
+    &:hover {
+      border-color: $blue-grotto;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 130, 27, 0.2);
+      p:first-child {
+        color: $blue-grotto;
+      }
+    }
+
+    p:not(:last-child) {
       margin-bottom: 8px;
     }
-    &:hover {
-      color: $blue-grotto;
+
+    p:first-child {
+      font-size: 32px;
+      font-weight: bold;
+      transition: color 0.25s;
+      color: $white;
+    }
+
+    p:last-child {
+      font-size: 14px;
     }
   }
 }
